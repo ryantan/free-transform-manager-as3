@@ -5,12 +5,18 @@ package
 	import flash.display.Bitmap;
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.text.TextField;
+	import flash.text.TextFieldAutoSize;
+	import flash.text.TextFieldType;
+	import flash.text.TextInteractionMode;
 	
 	public class Main extends Sprite
 	{
 		//
 		[Embed(source="220px-Lenna.png")]
 		private var imgCls:Class;
+		//
+		private var txtObj:TextField = new TextField();
 		//
 		private var fts:FreeTransformManager;
 		//
@@ -25,7 +31,14 @@ package
 			//
 			var container:Sprite = new Sprite();
 			var photo:Bitmap  = new imgCls();
-			container.addChild(photo);
+			//
+//			txtObj.embedFonts = true;
+//			txtObj.textInteractionMode = TextInteractionMode.SELECTION;
+			txtObj.type = TextFieldType.INPUT;
+			txtObj.text = "AAABBBCCC";
+			txtObj.autoSize = TextFieldAutoSize.LEFT;
+//			container.addChild(photo);
+			container.addChild(txtObj);
 			this.addChild(container);
 			// Set up FreeTransformManager
 			fts = new FreeTransformManager(false);
